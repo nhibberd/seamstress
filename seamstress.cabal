@@ -1,0 +1,73 @@
+version: 0.0.1
+
+name:
+  seamstress
+author:
+  Nick Hibberd
+maintainer:
+  Nick Hibberd <nhibberd@gmail.com>
+homepage:
+  https://github.com/nhibberd/seamstress
+bug-reports:
+  https://github.com/nhibberd/seamstress/issues
+synopsis:
+  Thread configuration and management on top of async.
+description:
+  Thread configuration and management on top of async.
+category:
+  Control
+license:
+  BSD3
+license-file:
+  LICENSE
+cabal-version:
+  >= 1.8
+build-type:
+  Simple
+tested-with:
+    GHC == 8.0.1
+extra-source-files:
+  README.md
+
+source-repository head
+  type: git
+  location: git://github.com/nhibberd/seamstress.git
+
+library
+  build-depends:
+      base                            >= 3          && < 5
+    , async                           >= 2.0        && < 2.2
+    , text                            >= 1.1        && < 1.3
+    , transformers                    >= 0.5        && < 0.6
+    , transformers-bifunctors         >= 0.1        && < 1
+    , transformers-either             >= 0.0        && < 1
+
+  ghc-options:
+    -Wall
+
+  hs-source-dirs:
+    src
+
+  exposed-modules:
+    Seamstress
+
+test-suite test
+  type:
+    exitcode-stdio-1.0
+
+  main-is:
+    test.hs
+
+  ghc-options:
+    -Wall -threaded -O2
+
+  hs-source-dirs:
+    test
+
+  build-depends:
+      base                            >= 3          && < 5
+    , hedgehog                        >= 0.1        && < 1
+    , async                           >= 2.0        && < 2.2
+    , text                            >= 1.1        && < 1.3
+    , transformers                    >= 0.3        && < 0.6
+    , transformers-either
