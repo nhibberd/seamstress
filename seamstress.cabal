@@ -51,6 +51,9 @@ library
   exposed-modules:
     Seamstress
 
+    Seamstress.Control
+    Seamstress.Data
+
 test-suite test
   type:
     exitcode-stdio-1.0
